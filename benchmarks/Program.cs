@@ -10,14 +10,18 @@ namespace Benchmarks
         private string path = GetTempFilePathWithExtension(".graph");
         private byte[] src = Array.Empty<byte>();
         private Graph? graph;
+        [Params(65536, 65536 * 4, 65536 * 16, 65536 * 64, 65536 * 256)]
+        public int count;
 
-        public int VerticeCount = 5_000_000;
-        public int EdgeCount = 5_000_000;
+        public int VerticeCount;
+        public int EdgeCount;
 
 
         [GlobalSetup]
         public void Setup()
         {
+            VerticeCount = count / 3;
+            EdgeCount = count - VerticeCount;
             graph = new(VerticeCount, EdgeCount);
             for (int i = 0; i < VerticeCount; i++)
             {

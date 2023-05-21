@@ -11,8 +11,8 @@ namespace Benchmarks
         private byte[] src = Array.Empty<byte>();
         private Graph? graph;
 
-        public int VerticeCount = 1_000_000;
-        public int EdgeCount = 1_000_000;
+        public int VerticeCount = 5_000_000;
+        public int EdgeCount = 5_000_000;
 
 
         [GlobalSetup]
